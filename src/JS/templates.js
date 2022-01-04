@@ -1,7 +1,7 @@
 export function showCountryList ({ flags, name }){
     return `
     <li class = country-item>
-    <img class = country-list__flags src="${flags.svg}" alt="${name.official}" width=50/>
+    <img class = 'country-list__flags' src="${flags.svg}" alt="${name.official}" width=50/>
     <h2 class = country-list__name>${name.official}</h2>
     </li>
     `

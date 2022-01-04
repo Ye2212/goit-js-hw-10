@@ -19,6 +19,18 @@ body {
   margin-bottom: 16px;
 }
 
+.country-list {
+  list-style: none;
+}
+
+.country-item {
+  display: flex;
+}
+
+.country-list__flags {
+  margin-right: 10px;
+}
+
 .wrapper {
   display: flex;
   align-items: center;
