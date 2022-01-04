@@ -19,30 +19,25 @@ body {
   margin-bottom: 16px;
 }
 
-.country-list {
-  list-style: none;
-}
-
-.country-item {
+.wrapper {
   display: flex;
-  font-size: 13px;
+  align-items: center;
 }
 
-.country-list__flags {
-  margin-right: 40px;
+.country-flag {
+  margin-right: 20px;
 }
 
 .country-title {
-  font-size: 18px;
+  font-size: 30px;
   font-weight: 900;
 }
 
-.country-data__item {
-display: flex;
-}
-
 .country-text {
-font-size: 15px;
+font-size: 23px;
 font-weight: 700;
-/* margin-right: 20px; */
+margin-right: 20px;
+}
+.country-subtext {
+  font-size: 20px;
 }
