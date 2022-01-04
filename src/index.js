@@ -5,7 +5,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { showCountryList, showCountryCard } from './JS/templates';
 // import { countryListMarkup } from './templates/country-list.hbs'
 
-const DEBOUNCE_DELAY = 500;
+const DEBOUNCE_DELAY = 300;
 const searchBox = document.querySelector('#search-box');
 const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
@@ -14,14 +14,14 @@ searchBox.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
 
 function onSearch (e){
     e.preventDefault();
-let searchCountry = searchBox.value.trim();
+let searchCountry = searchBox.value;
 // console.log('searchCountry: ',searchCountry)
-if(searchCountry === "") {
+if(searchCountry.trim() === "") {
     countryList.innerHTML = "";
     countryInfo.innerHTML = "";
     return;
 }
-fetchCountries(searchCountry)
+fetchCountries(searchCountry.trim())
 .then(countries => {
     // console.log(countries)
     if(countries.length > 10) {
@@ -42,5 +42,11 @@ fetchCountries(searchCountry)
         countryList.innerHTML = "";
         countryInfo.innerHTML = countryCardMarcup.join('');
     }
+})
+.catch(error => {
+    Notify.failure('Oops, there is no country with that name');
+    countryList.innerHTML = "";
+    countryInfo.innerHTML = "";
+    return error;
 })
 }
